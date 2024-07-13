@@ -8,6 +8,7 @@
 </head>
 <body>
    <h3>Exercici 1.1: Arrow functions</h3>
+   <h4>Nivell 1</h4>
    <p><strong>Exercici 1</strong>
       Conversió de funcions: Tens una funció add que accepta dos paràmetres i retorna la seva suma. 
       Converteix-la en una funció de fletxa. Per exemple: function add(a, b) {return a + b;}.</p>
@@ -40,9 +41,35 @@
          const person1 = new Person('Tom'); <br>                         
          person1.greet(); <br>                                          
       </code>
+      <h4>Nivell 2</h4>
+      <p><strong>Exercici 4</strong> 
+         Funció de fletxa dins d'un loop: Crea una funció anomenada printNumbers que accepti un array de números 
+         i utilitzi un loop for per imprimir cada número a la consola utilitzant una funció de fletxa.</p>
+         <code>
+            let printNumbers = (arr) => { <br>
+               for(let i = 0; i < arr.length; i++){ <br>
+                  console.log(arr[i]); <br>
+               };
+            }; <br>
+            printNumbers([1,2,3]); 
+           
+         </code>
+      <h4>Nivell 3</h4>
+      <p><strong>Exercici 5</strong> 
+         Funció de fletxa amb 'setTimeout': Crea una funció de fletxa que imprimeixi un missatge a la consola 
+         després d'esperar 3 segons.</p>
+         <code>
+            let msg = () => { <br>
+               setTimeout(()=> { <br>
+                  console.log('Hello!'); <br>
+               }, 3000); <br>
+             }; <br>
+             msg();
+         </code>
 
       <h3>Exercici 1.2: Operador ternari</h3>
-      <p>Exercici 1
+      <h4>Nivell 1</h4>
+      <p><strong>Exercici 1</strong>
          Operador ternari bàsic: Escriu una funció potConduir que accepti l'edat com a paràmetre 
          i utilitzi l'operador ternari per determinar si l'usuari pot conduir. 
          Si l'edat és 18 o més, ha de retornar 'Pots conduir'. Si no, ha de retornar 'No pots conduir'.</p>
@@ -52,7 +79,7 @@
             }; <br>
             console.log(potConduir(2));
          </code>
-      <p>Exercici 2
+      <p><strong>Exercici 1</strong>
          Ús amb operadors de comparació: Escriu una expressió que utilitzi l'operador ternari per determinar 
          quin dels dos nombres donats (num1 i num2) és més gran. 
          Si num1 és més gran, retorna 'num1 és més gran'. 
@@ -63,14 +90,56 @@
             }; <br>
             console.log(biggerNum(2, 1));
          </code>
+         <h4>Nivell 2</h4>
+         <p><strong>Exercici 3</strong>
+            Ús enllaçat d'operadors ternaris: Escriu una expressió 
+            que utilitzi enllaços d'operadors ternaris per determinar si un número és positiu, negatiu o zero.</p>
+            <code>
+               const plusMenosZero = (num) => { <br>
+                  return num === 0 ? 'Zero' <br>
+                  : num > 0 ? 'Positiu' <br>
+                  : 'Negatiu' <br>
+                 } <br>
+               console.log(plusMenosZero(34));
+            </code>
+         <p>Operador ternari amb funcions: Crea una funció trobarMaxim que accepti tres paràmetres (a, b, c) i 
+            utilitzi l'operador ternari per determinar el valor màxim.</p>
+            <code>
+               const trobarMaxim = (a,b,c) => { <br>
+                  return a > b && a > c ? a <br>
+                  : b > a && b > c ? b <br>
+                  : c <br>
+                } <br>
+              console.log(trobarMaxim(1,2.5,2));
+            </code>
+         <h4>Nivell 3</h4>
+         <p><strong>Exercici 4</strong>
+            Operador ternari dins un bucle: Escriu una funció parOImpar que accepti un array de números 
+            i utilitzi un bucle per a recórrer l'array. Dins del bucle, utilitza l'operador ternari per a determinar 
+            si cada número és parell o imparell.</p>
+            <code>
+               const parOImpar = (arr) => { <br>
+                  arr.forEach(el => { <br>
+                     console.log(el % 2 === 0 ? el + " es par" : el + " es impar"); <br> 
+                  }); <br>
+                } <br>
+               parOImpar([1,5,7,4]);
+            </code>
 
       <h3>Exercici 1.3: Callbacks</h3>
+      <h4>Nivell 1</h4>
       <p><strong>Exercici 1</strong>
          Callback bàsic: Escriu una funció anomenada processar que accepti dos paràmetres: un nombre 
          i una funció de callback. 
          La funció processar ha d'invocar la funció de callback, passant el nombre com a paràmetre.</p>
          <code>
-
+            const processar = (num, callback)=> { <br>
+               return callback(num) <br>
+             }; <br>
+             const getNum = (num) => { <br>
+               console.log("Your number is " + num); <br>
+             } <br>
+             processar(9, getNum);
          </code>
       <p><strong>Exercici 2</strong>
          Callbacks amb operacions matemàtiques: Escriu una funció calculadora que accepti tres paràmetres: 
@@ -86,12 +155,120 @@
               }; <br>
               calculadora(5,7, sum);
          </code>
+         <h4>Nivell 2</h4>
+         <p><strong>Exercici 3</strong>
+            Ús de callbacks en funcions asíncrones: Escriu una funció esperarISaludar que accepti dos paràmetres: un nom 
+            i una funció de callback. La funció ha d'esperar 2 segons i llavors invocar la funció de callback, 
+            passant el nom com a paràmetre.</p>
+         <code>
+            const esperarISaludar = (name, wait) => { <br>
+               setTimeout(() => wait(name), 2000); <br>
+              }; <br>
+             const saludar = (name) => { <br>
+               console.log("Hello " + name + "!"); <br>
+             }; <br>
+             esperarISaludar('Maria', saludar);
+         </code>
+         <p><strong>Exercici 4</strong>
+            Callbacks amb arrays: Escriu una funció processarElements que 
+            accepti dos paràmetres: un array i una funció de callback. 
+            La funció processarElements ha d'invocar la funció de callback per cada element de l'array.</p>
+         <code>
+            const processarElements = (arr, callback) => { <br>
+               callback(arr); <br>
+              }; <br>
+              let plusOne = arr => arr.forEach(el => { <br>
+               console.log(el + 1); <br>
+              }); <br>
+             processarElements([1,2,3], plusOne);
+         </code>
+         <h4>Nivell 3</h4>
+         <p><strong>Exercici 5</strong>
+            Escriu una funció processarCadena que accepti dos paràmetres: una cadena de caràcters i una funció de callback. 
+            La funció processarCadena ha de convertir la cadena a majúscules i llavors invocar la funció de callback 
+            amb la cadena transformada.</p>
+         <code>
+            const processarCadena = (text, callback) => { <br>
+               const toCapLet = text.toUpperCase(); <br>
+               callback(toCapLet); <br>
+              }; <br>
+              const printText = (text) => console.log(text); <br>
+             processarCadena('hello', printText);
+         </code>
+
          <h3>Exercici 1.4: Rest & Spread operators</h3>
+         <h4>Nivell 1</h4>
          <p><strong>Exercici 1</strong>
             Operador Spread en Arrays: Crea dues arrays, array1 i array2. Utilitza l'operador spread per a crear una tercera array que contingui tots els elements de array1 i array2.</p>
+            <code>
+               let arr1 = [1,2,5]; <br>
+               let arr2 = [3,2]; <br>
+               let arr3 = [...arr1, ...arr2]; <br>
+               console.log(arr3);
+            </code>
          <p><strong>Exercici 2</strong>
             Operador Rest en Funcions: Crea una funció 'suma' que utilitzi l'operador rest per a acceptar un nombre indeterminat d'arguments i retornar la seva suma.</p>
+            <code>
+               const suma = (...nums) => { <br>
+                  let total = 0; <br>
+                  nums.forEach(num => total += num); <br>
+                  return total; <br>
+                 }; <br>
+                 console.log(suma(2,3,5,9));
+            </code>
+         <h4>Nivell 2</h4>
+         <p><strong>Exercici 3</strong>
+            Copiant objectes amb Spread: Crea un objecte 'objecte1'. Després crea un segon objecte, 'objecte2', que sigui una còpia de 'objecte1' utilitzant l'operador spread. Canvia una propietat de 'objecte2' i comprova que 'objecte1' no ha canviat.</p>
+         <code>
+            const obj1 = { <br>
+               name: 'Mike', <br>
+               tel : 645134509 <br>
+              }; <br>
+              const obj2 = {...obj1}; <br>
+              obj2.lastName = 'Fox'; <br>
+              console.log(obj2); <br>
+              console.log(obj1);
+         </code>
+         <p><strong>Exercici 4</strong>
+            Rest en Destructuring: Crea una array amb diversos elements. Utilitza destructuring i l'operador rest per a assignar els primers dos elements a variables, i després assignar la resta dels elements a una tercera variable.</p>
+         <code>
+            let arr = ['Mike', true, 1, 5]; <br>
+            let [str, boolean, ...rest] = arr; <br>
+            console.log(boolean); <br>
+            console.log(str); <br>
+            console.log(...rest); <br>
+         </code>
+         <h4>Nivell 3</h4>
+         <p><strong>Exercici 5</strong>
+            Spread en Funcions: Crea una funció que accepti tres arguments. Després, crea una array amb tres elements i crida la funció utilitzant l'operador spread amb aquesta array.</p>
+         <code>
+            let data = (name, lastName, tel) => { <br>
+               console.log("Name: "+ name +". Last Name: " + lastName +". Tel.: " + tel); <br>
+            }; <br>
+           let person = ['Tom', 'Black', 675983547]; <br>
+           data(...person); 
+         </code>
+         <p><strong>Exercici 6</strong>
+            Fusionant Objectes amb Spread: Crea dos objectes amb propietats diferents. Utilitza l'operador spread per a fusionar aquests dos objectes en un de nou.</p>
+         <code>
+            const type = { <br>
+               brand: 'BMW', <br>
+               serie: 'X1' <br>
+           }; <br>
+           const details = { <br>
+               year: 2024, <br>
+               price: "63.100", <br>
+               color: 'Black' <br>
+           }; <br>
+           const car = { 
+            ...type,
+            ...details
+           }; <br>
+           console.log(car);
+         </code>
+
          <h3>Exercici 1.5: Array transformations</h3>
+         <h4>Nivell 1</h4>
          <p><strong>Exercici 1</strong>
             Map: Teniu un array de números [1, 2, 3, 4]. Crea una nova array que contingui el quadrat de cada número.</p>
             <code>
@@ -120,7 +297,35 @@
                let sumOfAll = nums.reduce( (total, num) => total + num ) <br>
                console.log(sumOfAll); 
             </code>
+            <h4>Nivell 2</h4>
+            <p><strong>Exercici 5</strong>
+               Donat un array "[ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]", crea una funció en una sola línia que faci el següent: <br>
+
+               - Filtra els nombres majors o iguals a 10. <br>
+               
+               - Multiplica cada nombre filtrat per 2. <br>
+               
+               - Calcula la suma dels nombres filtrats i multiplicats per 2. <br>
+               
+               - La funció ha de retornar el resultat de la suma.
+               </p>
+            <code>
+               arr = [ 1, 3, 7, 10 ,15, 17, 11, 5, 8, 12, 9 ]; <br>
+               console.log(arr.filter(num => num >= 10).map(num => num * 2).reduce((total, num) => total + num));
+            </code>
+            <h4>Nivell 3</h4>
+            <p><strong>Exercici 6</strong>
+               Every / Some: Usa every i some per a determinar si tots o alguns dels elements de 
+               l'array [11, 12, 13, 14] són majors que 10, respectivament</p>
+            <code>
+               const arr = [11, 12, 13, 14]; <br>
+               const moreThanTen = (el) => el > 10; <br>
+               console.log(arr.every(moreThanTen)); <br>
+               console.log(arr.some(moreThanTen));
+            </code>
+
          <h3>Exercici 1.6: Array loops</h3>
+         <h4>Nivell 1</h4>
          <p><strong>Exercici 1</strong>
             forEach: Teniu una array de noms. Utilitza forEach per a imprimir cada nom a la consola: let noms = ['Anna', 'Bernat', 'Clara'];</p>
             <code>
@@ -143,12 +348,131 @@
                let even = nums.filter( num => num%2 === 0); <br>
                console.log(even);
             </code>
+         <h4>Nivell 2</h4>
+         <p><strong>Exercici 4</strong>
+            for-in: Teniu un objecte amb parells clau-valor: let obj = { nom: Ona, edat: 25, ciutat: 'Barcelona' }; Utilitza un bucle for-in per a imprimir a la consola cada clau i el seu valor corresponent.</p>
+         <code>
+            let obj = { nom: "Ona", edat: 25, ciutat: 'Barcelona' }; <br>
+            for (let date in obj) { <br>
+            console.log(date + ": " + obj[date]); <br>
+            };
+         </code>
+         <p><strong>Exercici 5</strong>
+            for-of amb break: Teniu una array de números. Utilitza un bucle for-of per a imprimir a la consola els números fins a trobar el número 5, llavors atura el bucle: let numeros = [1, 2, 3, 4, 5, 6];</p>
+         <code>
+            let numeros = [1, 2, 3, 4, 5, 6]; <br>
+            for (let num of numeros) { <br>
+               if(num > 5){ <br>
+               break; <br>
+               }; <br>
+               console.log(num); <br>
+            };
+         </code>
+         <h4>Nivell 3</h4>
+         <p><strong>Exercici 6</strong>
+            for-of amb index: Utilitza un bucle for-of per a imprimir a la consola cada element de l'array i la seva posició (index): let noms = ['Anna', 'Bernat', 'Clara']</p>
+         <code>
+            let noms = ['Anna', 'Bernat', 'Clara']; <br>
+            for (let [index, name] of noms.entries() ) { <br>
+            console.log(name + " - index: "+ index + "."); <br>
+            };
+         </code>
+
          <h3>Exercici 1.7: Promises & Async/Await</h3>
+         <h4>Nivell 1</h4>
+         <p><strong>Exercici 1</strong>
+            Creació d'una Promesa: Crea una promesa que es resolgui després de 2 segons 
+            i que retorni la cadena de text 'Hola, món'.</p>
+         <code>
+            const saludar = new Promise((resolve, reject)=>{ <br>
+               setTimeout(() => { <br>
+                  resolve('Hola, món'); <br>
+               }, 2000); <br>
+           });
+         </code>
+         <p><strong>Exercici 2</strong>
+            Utilització d'una Promesa: Utilitza la promesa creada en l'exercici anterior. 
+            Crea un .then que imprimeixi el resultat a la consola.</p>
+         <code>
+            saludar.then(mensaje => console.log(mensaje));
+         </code>
+         <p><strong>Exercici 3</strong>
+            Promesa amb reject: Crea una promesa que es resolgui després de 2 segons 
+            si l'input és igual a 'Hola', i que la rebutgi si l'input és qualsevol altra cosa.</p>
+         <code>
+            const isCorrect = (input) => { <br>
+               return new Promise((resolve, reject) => { <br>
+                  setTimeout(()=>{ <br>
+                     if(input === 'Hola'){ <br>
+                        resolve(input); <br>
+                     } else { <br>
+                        reject(new Error(input + ' Is not correct')) <br>
+                     } <br>
+                  }, 2000); <br>
+               }); <br>
+              }; <br>
+              <br>
+              isCorrect('ola') <br>
+              .then(mensaje => console.log(mensaje)) <br>
+              .catch(error => console.error(error.message)); <br>
+              isCorrect('Hola') <br>
+              .then(mensaje => console.log(mensaje)) <br>
+              .catch(error => console.error(error.message));
+         </code>
+         <p><strong>Exercici 4</strong>
+            Ús de async/await: Escriu una funció asíncrona que utilitzi la funció await 
+            per a esperar el resultat de la promesa creada a l'exercici 1, 
+            i que després imprimeixi aquest resultat a la consola.</p>
+         <code>
+            async function mostrarSaludo(){ <br>
+               const mensaje = await saludar; <br>
+               console.log(mensaje); <br>
+            };
+         </code>
+         <h4>Nivell 2</h4>
+         <p><strong>Exercici 5</strong>
+            Gestió d'errors amb async/await: Modifica la funció de l'exercici 4 
+            per a que capturi qualsevol possible error utilitzant un bloc try/catch.</p>
+         <code>
+            async function mostrarSaludo(){ <br>
+               try { <br>
+                  const mensje = await saludar; <br>
+               console.log(mensaje); <br>
+               } catch (error) { <br>
+                  console.error('Hubo un error',error) <br>
+               } <br>
+            };
+         </code>
+         <h4>Nivell 3</h4>
+         <p><strong>Exercici 6</strong>
+            Promise.all: Crea dues promeses que es resolguin després de 2 i 3 segons, 
+            respectivament. Utilitza Promise.all per a esperar que ambdues promeses es resolguin, 
+            i imprimeix els resultats a la consola.</p>
+         <code>
+            const promesa1 = new Promise((resolve) => { <br>
+               setTimeout(()=>{ <br>
+                  resolve('Uno...'); <br>
+               }, 2000); <br>
+            }); <br>
+            const promesa2 = new Promise((resolve) => { <br>
+               setTimeout(()=>{ <br>
+                  resolve('Dos...'); <br>
+               }, 3000); <br>
+            }); <br>
+            <br>
+            async function ejecutar(){ <br>
+               const result = await Promise.all([promesa1, promesa2]); <br>
+               console.log(result); <br>
+            };
+         </code>
          
    <script>
      
      
-      
+         
+
+
+
    </script>
 </body>
 </html>
